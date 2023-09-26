@@ -7,7 +7,11 @@ python_executable = r"C:\Users\Consultant\AppData\Local\Programs\Python\Python31
 os.environ["PYSPARK_PYTHON"] = python_executable
 
 # Create a Spark session
-spark = SparkSession.builder.appName("Transform_Datafrme").getOrCreate()
+spark = SparkSession. \
+        builder. \
+        appName("Transform_Datafrme") \
+        .master("local") \
+        .getOrCreate()
 
 # Read a csv file
 csv_df = spark.read.csv(r"C:\Users\Consultant\Documents\Assignments_training_bd\training_notes\week_9_25-9-29\sample_data.csv",header=True,inferSchema=True)
